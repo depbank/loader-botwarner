@@ -2,8 +2,10 @@
 Тикеты поддержки
 """
 from aiogram import Router, F
+from aiogram.filters import StateFilter
 from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
 
 from bot import bot, logger
 from database import db
@@ -14,6 +16,10 @@ import config
 router = Router()
 
 
+class TicketForm(StatesGroup):
+    waiting_for_message = State()
+
+
 @router.message(F.text == "💬 Поддержка")
 async def support_ticket(message: Message, state: FSMContext):
     await message.answer(
@@ -22,12 +28,12 @@ async def support_ticket(message: Message, state: FSMContext):
         "Администратор ответит в ближайшее время.",
         reply_markup=get_cancel_keyboard()
     )
-    await state.set_state("waiting_for_ticket_message")
+    await state.set_state(TicketForm.waiting_for_message)
 
 
-@router.message(state="waiting_for_ticket_message")
+@router.message(TicketForm.waiting_for_message)
 async def process_ticket_message(message: Message, state: FSMContext):
-    if len(message.text) > 4000:
+    if not message.text or len(message.text) > 4000:
         await message.answer("❌ Сообщение слишком длинное (макс. 4000 символов).")
         return
 
