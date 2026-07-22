@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: loader-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: MAIN_ADMIN_ID
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: MONITORING_PASSWORD
+        sync: false
