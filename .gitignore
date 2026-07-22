@@ -1,0 +1,59 @@
+# ---------- CRITICAL: Secrets ----------
+.env
+.env.local
+.env.production
+*.key
+*.pem
+*.cert
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+*.manifest
+*.spec
+
+# ---------- Virtual Environments ----------
+venv/
+.venv/
+env/
+.env/
+
+# ---------- IDE & Editors ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---------- Bot Runtime Data ----------
+temp/
+downloads/
+logs/
+database/
+*.log
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ---------- FFmpeg ----------
+ffmpeg/
+ffmpeg.exe
+ffprobe.exe
+ffmpeg-*-essentials_build/
+
+# ---------- OS Files ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+Thumbs.db
