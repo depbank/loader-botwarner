@@ -100,4 +100,4 @@ MIT License
 
 ---
 
-**Made with ❤️ by [TAIIENT](https://github.com/TAIIENT)**
+**Made with AI and ❤️ by [TAIIENT](https://github.com/TAIIENT)**
